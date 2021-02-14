@@ -1,4 +1,3 @@
-
 using Microsoft.AspNetCore.Mvc;
 using Accounting.RabbitMQ.Api.Services;
 using Accounting.RabbitMQ.Api.Models;
