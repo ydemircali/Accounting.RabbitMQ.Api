@@ -18,7 +18,7 @@ namespace Accounting.RabbitMQ.Api.Services
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
             {
-                channel.QueueDeclare(queue: "Fiş Kuyruğu",
+                channel.QueueDeclare(queue: "AccTransactions",
                                      durable: false,
                                      exclusive: false,
                                      autoDelete: false,
@@ -28,7 +28,7 @@ namespace Accounting.RabbitMQ.Api.Services
                 var body = Encoding.UTF8.GetBytes(fisModel);
 
                 channel.BasicPublish(exchange: "",
-                                     routingKey: "Fiş Kuyruğu",
+                                     routingKey: "AccTransactions",
                                      basicProperties: null,
                                      body: body);
                 return "TransactionObjectId:" + data.TransactionObjectId+ " added queue.";
